@@ -123,19 +123,30 @@ function getUserSelection() {
     alert("Cannot exceed more than 128")
   }
 
-var useLowerCase = confirm("Include lower case characters?")
-var useUpperCase = confirm("Include upper case characters?")
-var useNumerical = confirm("Include numbers?")
-var useSpecial = confirm("Include special characters?")
+var userLowerCase = confirm("Include lower case characters?");
+var userUpperCase = confirm("Include upper case characters?");
+var userNumerical = confirm("Include numbers?");
+var userSpecial = confirm("Include special characters?");
+var userOptions = [];
+var password = "";
 
-if(!useLowerCase && !useUpperCase && !useNumerical && !useSpecial) {
+if(!userLowerCase && !userUpperCase && !userNumerical && !userSpecial) {
   alert("You need to select at least of one character type")
 }
-
+if (userLowerCase) {
+  userOptions = userOptions.concat(lowerCaseChar);
+}
+if (userUpperCase) {
+  userOptions = userOptions.concat(upperCaseChar);
+}
+if (userLowerCase) {
+  userOptions = userOptions.concat(numericalChar);
+}
+if (specialChar) {
+  userOptions = userOptions.concat(specialChar);
 }
 
-
-
+}
 
 }
 
