@@ -105,15 +105,8 @@ function writePassword() {
   passwordText.value = password;
 
 function generatePassword() {
-  var optionsSelected = getUserSelection()
-  if (optionsSelected === undefined) {
-    return;
-  }
-}
-
-
-// Series of prompts for user selection
-function getUserSelection() {
+ 
+  // Series of prompts for user selection
   var numberChars = parseInt(prompt("Enter number of characters for password, must be between 8 and 128 characters "))
   if (Number.isNaN(numberChars)) {
     alert("You must enter a number")
@@ -149,6 +142,8 @@ for (let i = 0; i < numberChars; i++) {
   var randomIndex = Math.floor(Math.random() * userOptions.length);
   password += userOptions[randomIndex]
 }
+return password
+
 }
 
 }
