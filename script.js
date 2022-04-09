@@ -110,11 +110,15 @@ function generatePassword() {
   var numberChars = parseInt(prompt("Enter number of characters for password, must be between 8 and 128 characters "))
   if (Number.isNaN(numberChars)) {
     alert("You must enter a number")
+    return "Please enter a number between 8 and 128"
   }else if (numberChars < 8) {
     alert("Minimum 8 characters needed.")
+    return "Please enter a number between 8 and 128"
   }else if (numberChars > 128) {
     alert("Cannot exceed more than 128")
+    return "Please enter a number between 8 and 128"
   }
+
 
 var userLowerCase = confirm("Include lower case characters?");
 var userUpperCase = confirm("Include upper case characters?");
