@@ -128,7 +128,8 @@ var userOptions = [];
 var password = "";
 
 if(!userLowerCase && !userUpperCase && !userNumerical && !userSpecial) {
-  alert("You need to select at least of one character type")
+  alert("You need to select at least one character type")
+  return "Please select at least one character type "
 }
 if (userLowerCase) {
   userOptions = userOptions.concat(lowerCaseChar);
