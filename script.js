@@ -114,12 +114,12 @@ function generatePassword() {
 
 // Series of prompts for user selection
 function getUserSelection() {
-  var numberSelection = parseInt(prompt("Enter number of characters for password, must be between 8 and 128 characters "))
-  if (Number.isNaN(numberSelection)) {
+  var numberChars = parseInt(prompt("Enter number of characters for password, must be between 8 and 128 characters "))
+  if (Number.isNaN(numberChars)) {
     alert("You must enter a number")
-  }else if (numberSelection < 8) {
+  }else if (numberChars < 8) {
     alert("Minimum 8 characters needed.")
-  }else if (numberSelection > 128) {
+  }else if (numberChars > 128) {
     alert("Cannot exceed more than 128")
   }
 
@@ -145,7 +145,10 @@ if (userLowerCase) {
 if (specialChar) {
   userOptions = userOptions.concat(specialChar);
 }
-
+for (let i = 0; i < numberChars; i++) {
+  var randomIndex = Math.floor(Math.random() * userOptions.length);
+  password += userOptions[randomIndex]
+}
 }
 
 }
