@@ -1,7 +1,7 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
-// Declared Variables
+// Declared global scope variables
 var lowerCaseChar = [
   'a',
   'b',
@@ -105,8 +105,7 @@ function writePassword() {
   passwordText.value = password;
 
 function generatePassword() {
- 
-  // Series of prompts for user selection
+ // Series of prompts for user selection
   var numberChars = parseInt(prompt("Enter number of characters for password, must be between 8 and 128 characters "))
   if (Number.isNaN(numberChars)) {
     alert("You must enter a number")
@@ -119,37 +118,37 @@ function generatePassword() {
     return "Please enter a number between 8 and 128"
   }
 
+// Declared variable for prompt windows, user options and generated password
+  var userLowerCase = confirm("Include lower case characters?");
+  var userUpperCase = confirm("Include upper case characters?");
+  var userNumerical = confirm("Include numbers?");
+  var userSpecial = confirm("Include special characters?");
+  var userOptions = [];
+  var password = "";
 
-var userLowerCase = confirm("Include lower case characters?");
-var userUpperCase = confirm("Include upper case characters?");
-var userNumerical = confirm("Include numbers?");
-var userSpecial = confirm("Include special characters?");
-var userOptions = [];
-var password = "";
+  if(!userLowerCase && !userUpperCase && !userNumerical && !userSpecial) {
+    alert("You need to select at least one character type")
+    return "Please select at least one character type"
+  }
+  if (userLowerCase) {
+    userOptions = userOptions.concat(lowerCaseChar);
+  }
+  if (userUpperCase) {
+    userOptions = userOptions.concat(upperCaseChar);
+  }
+  if (userLowerCase) {
+    userOptions = userOptions.concat(numericalChar);
+  }
+  if (specialChar) {
+    userOptions = userOptions.concat(specialChar);
+  }
+  for (let i = 0; i < numberChars; i++) {
+    var randomIndex = Math.floor(Math.random() * userOptions.length);
+    password += userOptions[randomIndex]
+  }
+  return password
 
-if(!userLowerCase && !userUpperCase && !userNumerical && !userSpecial) {
-  alert("You need to select at least one character type")
-  return "Please select at least one character type "
-}
-if (userLowerCase) {
-  userOptions = userOptions.concat(lowerCaseChar);
-}
-if (userUpperCase) {
-  userOptions = userOptions.concat(upperCaseChar);
-}
-if (userLowerCase) {
-  userOptions = userOptions.concat(numericalChar);
-}
-if (specialChar) {
-  userOptions = userOptions.concat(specialChar);
-}
-for (let i = 0; i < numberChars; i++) {
-  var randomIndex = Math.floor(Math.random() * userOptions.length);
-  password += userOptions[randomIndex]
-}
-return password
-
-}
+  }
 
 }
 
